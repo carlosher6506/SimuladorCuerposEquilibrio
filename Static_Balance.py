@@ -1,3 +1,6 @@
+#Esta version es el codigo en un solo archivo.
+
+
 #Librerias utilizadas
 import pygame
 import math
