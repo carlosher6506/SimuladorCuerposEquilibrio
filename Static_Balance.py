@@ -19,11 +19,11 @@ BLUE = (0, 71, 125)
 pygame.init()
 
 # Cargar imágenes
-rotacion_image_path = 'Giro.png'
-peso_image_path = 'Peso.png'
-polea_image_path = 'Poleas2.png'
-rope_image_path = '1.png'
-fondo_image_path = 'Fondo3.png'
+rotacion_image_path = 'img/Giro.png'
+peso_image_path = 'img/Peso.png'
+polea_image_path = 'img/Poleas2.png'
+rope_image_path = 'img/1.png'
+fondo_image_path = 'img/Fondo3.png'
 
 # Cargar imágenes
 rotacion_image = pygame.image.load(os.path.abspath(rotacion_image_path))
@@ -428,7 +428,3 @@ def main():
         clock.tick(30)
 
     pygame.quit()
-
-
-if __name__ == "__main__":
-    main()

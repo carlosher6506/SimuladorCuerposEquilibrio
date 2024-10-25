@@ -1,5 +1,4 @@
-from simulador import Simulador
+from Static_Balance import main
 
 if __name__ == "__main__":
-    simulador = Simulador(1350, 840)
-    simulador.run()
+    main()
