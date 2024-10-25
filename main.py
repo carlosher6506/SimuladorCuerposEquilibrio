@@ -1,4 +1,4 @@
-from Static_Balance import main
+from pages.Static_Balance import main
 
 if __name__ == "__main__":
     main()
