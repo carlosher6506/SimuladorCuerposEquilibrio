@@ -1,4 +1,8 @@
-from pages.Static_Balance import main
+from pages.menu import PhysicsMenu
+import tkinter as tk
 
+#Initializing the application
 if __name__ == "__main__":
-    main()
+    root = tk.Tk()
+    app = PhysicsMenu(root)
+    root.mainloop()     
