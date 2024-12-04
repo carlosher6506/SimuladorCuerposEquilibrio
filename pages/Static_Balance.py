@@ -1,11 +1,16 @@
-#Esta version es el codigo en un solo archivo.
-
 #Librerias utilizadas
 import pygame
 import math
 import os
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_agg import FigureCanvasAgg
+import subprocess
+
+def ir_menu():
+    ruta_ventana = "C:/Users/carli/Documents/Proyectos/SimuladorCuerposEquilibrio/pages/menu.py" 
+    subprocess.Popen(["python", ruta_ventana])
+    screen.destroy() 
+
 
 # Configuraciones iniciales
 WIDTH, HEIGHT = 1350, 840
@@ -254,7 +259,13 @@ def draw_scene(screen, weight, theta1, theta2, result_conversion, conversor_visi
     boton_grafico = pygame.Rect(240, 826, 180, 40)
     pygame.draw.rect(screen, BLUE, boton_grafico)
     texto_grafico = font_large.render('Graficar', True, WHITE)
-    screen.blit(texto_grafico, (260, 835))
+    screen.blit(texto_grafico, (280, 835))
+    
+    # Botón de "Regresar"
+    BtnRegresar = pygame.Rect(440, 826, 180, 40)
+    pygame.draw.rect(screen, BLUE, BtnRegresar)
+    texto_regresar = font_large.render('Regresar', True, WHITE)
+    screen.blit(texto_regresar, (475, 835))
     
     if mostrar_grafico and superficie_grafico:
             # Calcular la posición para el gráfico (esquina inferior derecha)
@@ -270,7 +281,7 @@ def draw_scene(screen, weight, theta1, theta2, result_conversion, conversor_visi
         
         # Dibujar el gráfico
             screen.blit(superficie_grafico, (grafico_x, grafico_y))
-        
+
 #Funcion el diagrama de cuerpo libre
 def draw_rope(screen, start, end, rope_image):
     # Calcular la distancia y el ángulo entre los puntos
@@ -292,6 +303,7 @@ def draw_rope(screen, start, end, rope_image):
     # Dibujar la cuerda
     screen.blit(rotated_rope, rope_rect)
 
+
 # Función principal que controla la ejecución
 def main():
     global weight, theta1, theta2, dragging, drag_start_x, drag_start_y, start_weight, start_theta1, start_theta2, k
@@ -311,6 +323,7 @@ def main():
     # Definir el botón y el input aquí
     btn_function = pygame.Rect(65, 680, 300, 40)
     input_1 = pygame.Rect(65, 630, 300, 45)
+    btnregresar_rect = pygame.Rect(440, 826, 180, 40)
 
     # Inicializar las variables para cambios
     peso_cambiado = False
@@ -332,6 +345,10 @@ def main():
                 BtnConversor = pygame.Rect(40, 826, 180, 40)
                 if BtnConversor.collidepoint(event.pos):
                     conversor_visible = not conversor_visible  # Alternar la visibilidad del conversor
+                    
+                if btnregresar_rect.collidepoint(event.pos):  # Verifica si se hace clic en el botón
+                    ir_menu()  # Llamar a la función que muestra el menú
+                    
                             
                 dragging = True
                 drag_start_x, drag_start_y = pygame.mouse.get_pos()
@@ -427,3 +444,6 @@ def main():
         clock.tick(30)
 
     pygame.quit()
+    
+if __name__ == "__main__":
+    main()

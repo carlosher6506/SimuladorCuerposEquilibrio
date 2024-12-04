@@ -29,6 +29,11 @@ fullscreen = False  # Estado de pantalla completa
 background_image = pygame.image.load("C:/Users/carli/Documents/Proyectos/SimuladorCuerposEquilibrio/img/log.png")  # Cambia por la ruta de tu imagen
 background_image = pygame.transform.scale(background_image, (1300,750))  # Escala la imagen al tamaño de la ventana
 
+# Cargar música
+pygame.mixer.music.load("C:/Users/carli/Documents/Proyectos/SimuladorCuerposEquilibrio/music/logr.mp3")  # Cambia por la ruta de tu archivo de música
+pygame.mixer.music.set_volume(sound_volume / 100)
+pygame.mixer.music.play(-1)  # Reproducir en bucle (-1)
+
 # Función para dibujar texto
 def draw_text(text, font, color, surface, x, y):
     text_surface = font.render(text, True, color)
@@ -67,7 +72,7 @@ def adjust_brightness():
 # Función para ajustar el sonido
 def adjust_sound():
     global sound_volume
-    sound_volume = (sound_volume + 10) % 110  # Incrementa en 10 el volumen, pero no puede superar 100
+    sound_volume = (sound_volume + 10) % 110
     if sound_volume == 0:
         sound_volume = 10
     pygame.mixer.music.set_volume(sound_volume / 100)
