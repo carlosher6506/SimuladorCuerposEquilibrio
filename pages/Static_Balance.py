@@ -7,7 +7,7 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg
 import subprocess
 
 def ir_menu():
-    ruta_ventana = "C:/Users/carli/Documents/Proyectos/SimuladorCuerposEquilibrio/pages/menu.py" 
+    ruta_ventana = "menu.py" 
     subprocess.Popen(["python", ruta_ventana])
     screen.destroy() 
 

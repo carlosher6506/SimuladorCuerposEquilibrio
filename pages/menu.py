@@ -26,11 +26,11 @@ sound_volume = 50  # Volumen del sonido (0-100)
 fullscreen = False  # Estado de pantalla completa
 
 # Cargar la imagen de fondo
-background_image = pygame.image.load("C:/Users/carli/Documents/Proyectos/SimuladorCuerposEquilibrio/img/log.png")  # Cambia por la ruta de tu imagen
+background_image = pygame.image.load("../img/log.png")  # Cambia por la ruta de tu imagen
 background_image = pygame.transform.scale(background_image, (1300,750))  # Escala la imagen al tamaño de la ventana
 
 # Cargar música
-pygame.mixer.music.load("C:/Users/carli/Documents/Proyectos/SimuladorCuerposEquilibrio/music/logr.mp3")  # Cambia por la ruta de tu archivo de música
+pygame.mixer.music.load("../music/logr.mp3")  # Cambia por la ruta de tu archivo de música
 pygame.mixer.music.set_volume(sound_volume / 100)
 pygame.mixer.music.play(-1)  # Reproducir en bucle (-1)
 
